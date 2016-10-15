@@ -167,10 +167,12 @@ function evenOdd(...num){
 
 function multiply(num, ...add){
 	let arr = [];
-	let mult = num * add;
-	return arr.push(mult);
+	for(var i = 0; i <add.length; i++){
+		let mult = num * add[i];
+		arr.push(mult);
+	}
+	return arr;
 }
-console.log(multiply(1, 5, 6, 7));
 
 // do not modify
 const bits = [ 2, 4, 8, 16, 32, 64, 128 ];
@@ -178,7 +180,7 @@ const bits = [ 2, 4, 8, 16, 32, 64, 128 ];
 // using an arrow function and the built in .map method, create a new array
 // named mooresBits. mooresBits should be the bits array doubled.
 
-const mooresBits = bits.map( => (bits*2));
+let mooresBits = bits.map(arr => arr*2);
 
 // do not modify
 const that = {
@@ -189,3 +191,6 @@ const that = {
 
 // using an arrow function, add a property named arrow that returns the window object
 // do this without using the window keyword. HINT: The default binding of the this keyword
+
+that.arrow = () => {return this;}
+//that.arrow = () => this;
